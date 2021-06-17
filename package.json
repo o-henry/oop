@@ -1,0 +1,12 @@
+{
+  "name": "OOP",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "henry <cksgod16@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^15.12.2",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.3"
+  }
+}
