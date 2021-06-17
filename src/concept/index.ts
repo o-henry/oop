@@ -26,12 +26,10 @@
  * 자식 클래스로부터 또 다른 객체 인스턴스를 생성할 수 있다.
  */
 
-interface Obj<T> {
-  [key: string]: T;
-}
+// type Obj<T> = { [key: string]: T };
 
 function createNewPerson(name: string) {
-  let obj: Obj<any> = {};
+  let obj: Record<string, any> = {};
   obj.name = name;
   obj.greeting = function () {
     console.log(`Hi! I'm '${this.name}'.`);
