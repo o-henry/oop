@@ -21,3 +21,25 @@ class BadGreeter {
     this.name = "hello";
   }
 }
+
+class OKGreeter {
+  // Not initialized, but no error
+  name!: string;
+}
+
+class Greeter {
+  readonly name: string = "world";
+
+  constructor(otherName?: string) {
+    if (otherName !== undefined) {
+      this.name = otherName;
+    }
+  }
+
+  err() {
+    this.name = "not ok";
+  }
+}
+
+const g = new Greeter();
+console.log(g.name);

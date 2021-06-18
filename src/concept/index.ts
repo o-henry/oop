@@ -30,6 +30,7 @@
 
 function createNewPerson(name: string) {
   let obj: Record<string, any> = {};
+
   obj.name = name;
   obj.greeting = function () {
     console.log(`Hi! I'm '${this.name}'.`);
