@@ -2,6 +2,7 @@
  * https://www.typescriptlang.org/docs/handbook/2/classes.html
  * https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes
  * https://ui.toast.com/weekly-pick/ko_20210107
+ * https://rambabupadimi.medium.com/typescript-object-oriented-programming-7a6fd905d90e
  **/
 
 class Point {
@@ -38,8 +39,66 @@ class Greeter {
 
   err() {
     this.name = "not ok";
+    //   ____ Cannot assign to 'name' because it is a read-only property.ts(2540)
   }
 }
 
 const g = new Greeter();
 console.log(g.name);
+
+/* <---------------> */
+interface Wheel {
+  id: number;
+  name: string;
+  type: string;
+}
+
+class Vehicle {
+  private wheel?: Wheel;
+  private name?: string;
+  private vehicleNo = 102;
+
+  addWheel(value: Wheel) {
+    this.wheel = value;
+  }
+
+  getWheel() {
+    return this.wheel;
+  }
+
+  start() {
+    console.log(`${this.name} vehicle started`);
+  }
+
+  stop() {
+    console.log(`${this.vehicleNo} vehicle stoped`);
+  }
+}
+
+const vehicle = new Vehicle();
+vehicle.start();
+vehicle.stop();
+vehicle.addWheel({ id: 101, name: "HANKOOK", type: "Conventional Steel" });
+
+// Inheritance
+class Car extends Vehicle {
+  constructor() {
+    super();
+  }
+
+  move() {
+    console.log("Car is moving...");
+  }
+}
+
+const car = new Car();
+car.start();
+car.move();
+
+// Abstract Class
+abstract class Petrol extends Vehicle {
+  abstract setFullTank(): void;
+  setDefault() {
+    console.log("petrol filled with default");
+  }
+}
