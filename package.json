@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "henry <cksgod16@gmail.com>",
+  "scripts": {
+    "start": "node src/*/*.js",
+    "prestart": "tsc"
+  },
   "license": "MIT",
   "dependencies": {
     "@types/node": "^15.12.2",

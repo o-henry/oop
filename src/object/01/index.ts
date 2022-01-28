@@ -13,7 +13,7 @@ class Invitation {
 class Ticket {
   private fee: number;
 
-  getFee() {
+  getFee(): number {
     return this.fee;
   }
 }
@@ -23,11 +23,11 @@ class Bag {
   private invitation: Invitation;
   private ticket: Ticket;
 
-  hasInvitational() {
+  hasInvitational(): boolean {
     return this.invitation !== null;
   }
 
-  hasTicket() {
+  hasTicket(): boolean {
     return this.ticket !== null;
   }
 
@@ -41,5 +41,17 @@ class Bag {
 
   plusAmount(amount: number) {
     this.amount += amount;
+  }
+}
+
+class Audience {
+  private bag: Bag;
+
+  constructor(bag: Bag) {
+    this.bag = bag;
+  }
+
+  getBag(): Bag {
+    return this.bag;
   }
 }
