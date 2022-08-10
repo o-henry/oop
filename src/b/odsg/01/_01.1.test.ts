@@ -126,4 +126,26 @@ describe("chapter 01", () => {
         expect(obj.get()).toBe(5);
         expect(n_obj.get()).toBe(6);
     });
+
+    it("dependency with service location", () => {
+        class ServiceLocator {
+            public static getLogger = () => {}; // ..do something
+        }
+        class Foo {
+            constructor() {}
+
+            public some_method(): void {
+                const logger = ServiceLocator.getLogger();
+            }
+        }
+    });
+
+    it("dependency with dependency injection", () => {
+        class Logger {}
+        class Foo {
+            public constructor(private logger: Logger) {
+                this.logger = logger;
+            }
+        }
+    });
 });
