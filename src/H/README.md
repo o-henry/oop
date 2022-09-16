@@ -1,5 +1,5 @@
 <p align="center">
     <samp>
-        Architecture Patterns with Python
+        Head First Design Pattern
     </samp>
 </p>

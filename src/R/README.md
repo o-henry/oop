@@ -1,5 +1,5 @@
 <p align="center">
     <samp>
-        Architecture Patterns with Python
+        Refactoring
     </samp>
 </p>
