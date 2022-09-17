@@ -1,5 +1,10 @@
-let organization = { name: "애크미 구스베리", country: "GB" };
+"use strict";
+const organization = { name: "Acme Gooseberries", country: "GB" }; // record
 
+result += `<h1>${organization.name}</h1>`;
+organization.name = "Henry";
+
+/** encapsulation */
 class Organization {
     constructor(data) {
         this._name = data.name;
