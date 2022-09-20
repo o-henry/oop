@@ -1,4 +1,4 @@
-/** @role outport */
+/** @role outgoing-port */
 interface OrderRepository {
     save(order: Order): void;
 }
