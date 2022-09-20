@@ -1,5 +1,5 @@
 <p align="center">
     <samp>
-        Dive into DESIGN PATTERNS 
+        Advanced Web Application Architecture
     </samp>
 </p>
