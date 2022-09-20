@@ -34,6 +34,14 @@ class InMemoryOrderRepository implements OrderRepository {
     save(order: Order): void {}
 }
 
+/** @role command */
+class CreateOrder {}
+
+/** @role incoming-port */
+interface EbookOrderSerivceInterface {
+    create(cmd: CreateOrder): OrderId;
+}
+
 /** @role controller(incoming adapter and HTTP adapter) */
 class OrderController {
     private constructor(private ebookOrderService: EbookOrderSerivce) {
@@ -41,20 +49,23 @@ class OrderController {
     }
 
     orderEbookAction(request: Request): Response {
-        const orderId = this.ebookOrderService.createOrder(/* ... */);
+        const orderId = this.ebookOrderService.create("abc");
         return new Response(/* ... */);
     }
 }
 
 /** @role service */
-class EbookOrderSerivce {
-    createOrder() {}
+class EbookOrderSerivce implements EbookOrderSerivceInterface {
+    create(cmd: CreateOrder): OrderId {
+        return new OrderId();
+    }
 }
 
 /** @role incoming-port */
 interface ListAvaliableEbooksRepository {
     /**
      * @return Ebook[]
+     * @method listAll : API
      */
     listAll<T>(): T[];
 }
@@ -71,5 +82,20 @@ class Ebook {
 
     getTitle(): string {
         return this.title;
+    }
+}
+
+/** @role adapter */
+class EbookController {
+    private constructor(
+        private ebookRepository: ListAvaliableEbooksRepository
+    ) {
+        this.ebookRepository = ebookRepository;
+    }
+
+    /** @Get ebook list */
+    listAvailableEbooksAction() {
+        const ebooks = this.ebookRepository.listAll<Ebook>();
+        return ebooks.map((ebook) => ebook.getTitle);
     }
 }
