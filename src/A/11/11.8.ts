@@ -1,4 +1,4 @@
-import { OrderRepository } from "./11.5";
+import { OrderRepository } from "./11.3";
 
 class OrderService {
     private constructor(private orderRepository: OrderRepository) {
