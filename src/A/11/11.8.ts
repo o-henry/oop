@@ -16,5 +16,6 @@ class OrderService {
 
     cancel(): void {}
 }
+1;
 
-export {};
+export { OrderService };
