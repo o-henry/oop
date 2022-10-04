@@ -20,4 +20,5 @@ describe("CQRS", () => {
         );
     });
 });
+
 export {};

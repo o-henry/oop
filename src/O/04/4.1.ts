@@ -1,10 +1,12 @@
+/** @role Entity */
+
 class SalesInvoice {
     /**
      * @var Line[]
      */
     private lines: [] = [];
     private finalized: boolean = false;
-    private salesInvoiceId: SalesInvoiceId;
+    private salesInvoiceId: SalesInvoiceId; // entity is mutable.
 
     public static create(): SalesInvoice {
         const object = new SalesInvoice();
@@ -13,17 +15,25 @@ class SalesInvoice {
     }
 
     public addLine(): void {
-        if (this.finalized) throw new RuntimeException(/* ... */);
+        if (this.finalized) throw new Error(/* ... */);
         this.lines = Line.create(/* ... */);
     }
 
     public finalize(): void {
-        this.finalize = true;
+        this.finalized = true;
     }
 
     public totalNetAmount(): Money {
         // ...
+        return;
     }
 
-    public totalAmonutIncludingTaxes(): Money {}
+    public totalAmonutIncludingTaxes(): Money {
+        return;
+    }
 }
+
+class Money {}
+class SalesInvoiceId {}
+
+export {};

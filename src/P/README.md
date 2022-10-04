@@ -1,5 +1,5 @@
 <p align="center">
     <samp>
-        Architecture Patterns with Python
+        Dive into DESIGN PATTERNS 
     </samp>
 </p>
